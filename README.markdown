@@ -28,7 +28,9 @@ bibsonomy-jekyll:
   style: acm-sig-proceedings
 ```
 
-You can get your BibSonomy API key from [the settings page](https://www.bibsonomy.org/settings?selTab=1#selTab1).
+You can get your BibSonomy API key from
+[the settings page](https://www.bibsonomy.org/settings?selTab=1#selTab1). **Do
+not put your API key into a public repository.**
 
 3. In any page or post, use the plugin as follows:
 
