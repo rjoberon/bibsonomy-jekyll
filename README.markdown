@@ -19,9 +19,9 @@ gem 'bibsonomy-jekyll'
 gems:
   - bibsonomy-jekyll
 
-bibsonomy-jekyll:
-  user: "yourusername"
-  apikey: "yourapikey"
+bibsonomy:
+  user: yourusername
+  apikey: yourapikey
   # directory must exists; empty value disables document download
   document_directory: pdf
   # check https://github.com/citation-style-language/styles for styles
