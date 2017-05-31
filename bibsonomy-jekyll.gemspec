@@ -19,6 +19,4 @@ Gem::Specification.new do |s|
   s.add_dependency 'bibsonomy', '~> 0.4', '>= 0.4.8'
 
   s.add_development_dependency 'rake', '~> 0'
-  s.add_development_dependency 'rdoc', '~> 0'
-  s.add_development_dependency 'rspec', '~> 3.0'
 end
