@@ -22,6 +22,10 @@ gems:
 bibsonomy-jekyll:
   user: "yourusername"
   apikey: "yourapikey"
+  # directory must exists; empty value disables document download
+  document_directory: pdf
+  # check https://github.com/citation-style-language/styles for styles
+  style: acm-siggraph
 ```
 
 You can get your BibSonomy API key from [the settings page](https://www.bibsonomy.org/settings?selTab=1#selTab1).
@@ -35,17 +39,10 @@ You can get your BibSonomy API key from [the settings page](https://www.bibsonom
 You should adapt the user name (`yourusername`)  and tag(s) (`myown`)
 to your needs.
 
-
-### Notes
-
-- Ensure that the directory `pdf` exists, which is configured in
-  variable `document_directory`. Configuring an empty directory
-  disables downloading of documents.
-
-- The plugin supports a variable number of parameters: GROUPING NAME
-  TAG1 ... TAGN COUNT
-  - GROUPING specifies whether posts for a user ("user") or group
-    ("group") shall be rendered.
-  - NAME specifies the name of the user or group.
-  - TAG1 ... TAGN is a variable number of tags the posts should have.
-  - COUNT is the maximal number of posts that shall be rendered.
+The plugin supports a variable number of parameters:
+`GROUPING NAME TAG1 ... TAGN COUNT`
+- `GROUPING` specifies whether posts for a user ("user") or group
+  ("group") shall be rendered.
+- `NAME` specifies the name of the user or group.
+- `TAG1 ... TAGN` is a variable number of tags the posts should have.
+- `COUNT` is the maximal number of posts that shall be rendered.
