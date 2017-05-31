@@ -11,7 +11,7 @@ title: BibSonomy plugin for Jekyll
 
 ## Usage
 
-1. Add the following to your site's ~Gemfile~:
+1. Add the following to your site's `Gemfile`:
 
 ```
 gem 'bibsonomy-jekyll'

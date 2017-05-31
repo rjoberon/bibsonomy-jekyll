@@ -37,17 +37,16 @@ module Jekyll
       site = context.registers[:site]
 
       # user name and API key for BibSonomy
-      user_name = site.config['bibsonomy_user']
-      api_key = site.config['bibsonomy_apikey']
+      bib_config = site.config['bibsonomy'] 
+      user_name = bib_config['user']
+      api_key = bib_config['apikey']
       csl = BibSonomy::CSL.new(user_name, api_key)
 
       # target directory for PDF documents
-      pdf_dir = site.config['bibsonomy_document_directory']
-      csl.pdf_dir = pdf_dir
+      csl.pdf_dir = bib_config['document_directory']
       
       # CSL style for rendering
-      style = site.config['bibsonomy_style']
-      csl.style = style
+      csl.style = bib_config['style']
 
       html = csl.render(@grouping, @name, @tags, @count)
 
