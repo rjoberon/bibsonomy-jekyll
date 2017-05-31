@@ -13,7 +13,7 @@
 gem 'bibsonomy-jekyll'
 ```
 
-2. Add the following to your site's ~_config.yml~:
+2. Add the following to your site's `_config.yml`:
 
 ```yml
 gems:
