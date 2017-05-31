@@ -25,7 +25,7 @@ bibsonomy-jekyll:
   # directory must exists; empty value disables document download
   document_directory: pdf
   # check https://github.com/citation-style-language/styles for styles
-  style: acm-siggraph
+  style: acm-sig-proceedings
 ```
 
 You can get your BibSonomy API key from [the settings page](https://www.bibsonomy.org/settings?selTab=1#selTab1).
@@ -46,3 +46,8 @@ The plugin supports a variable number of parameters:
 - `NAME` specifies the name of the user or group.
 - `TAG1 ... TAGN` is a variable number of tags the posts should have.
 - `COUNT` is the maximal number of posts that shall be rendered.
+
+## Examples
+
+For an example output, have a look at
+[my publication list](http://www.kbs.uni-hannover.de/~jaeschke/publications.html).
