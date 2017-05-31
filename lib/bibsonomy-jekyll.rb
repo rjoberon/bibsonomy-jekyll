@@ -12,7 +12,7 @@ require 'bibsonomy/csl'
 #     GROUPING is either "user" or "group" and specifies the type of NAME
 #     NAME is the name of the group or user
 #     TAG1 ... TAGN are tags
-#     COUNT is an integer, the number of posts to return 
+#     COUNT is an integer, the number of posts to return
 #
 # Changes:
 # 2017-05-31 (rja)
@@ -32,19 +32,17 @@ module Jekyll
       # everything else are the tags
       @tags = parts
     end
-    
+
     def render(context)
       site = context.registers[:site]
 
       # user name and API key for BibSonomy
-      bib_config = site.config['bibsonomy'] 
-      user_name = bib_config['user']
-      api_key = bib_config['apikey']
-      csl = BibSonomy::CSL.new(user_name, api_key)
+      bib_config = site.config['bibsonomy']
+      csl = BibSonomy::CSL.new(bib_config['user'], bib_config['apikey'])
 
       # target directory for PDF documents
       csl.pdf_dir = bib_config['document_directory']
-      
+
       # CSL style for rendering
       csl.style = bib_config['style']
 
@@ -52,7 +50,7 @@ module Jekyll
 
       # set date to now
       context.registers[:page]["date"] = Time.new
-      
+
       return html
     end
   end
