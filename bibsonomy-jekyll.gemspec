@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.files    = [ 'lib/bibsonomy-jekyll.rb' ]
 
   s.add_dependency 'jekyll', '~> 3.0'
-  s.add_dependency 'bibsonomy', '~> 0.4.8'
+  s.add_dependency 'bibsonomy', '~> 0.4', '>= 0.4.8'
 
   s.add_development_dependency 'rake', '~> 0'
   s.add_development_dependency 'rdoc', '~> 0'
