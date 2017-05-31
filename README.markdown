@@ -1,7 +1,3 @@
----
-title: BibSonomy plugin for Jekyll
----
-
 # BibSonomy
 
 [BibSonomy](https://www.bibsonomy.org/) plugin for [Jekyll](http://jekyllrb.com/).
