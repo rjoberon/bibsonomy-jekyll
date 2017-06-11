@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.description = %q{Enables rendering of posts from BibSonomy with a Jekyll tag.}
 
   s.homepage = 'https://github.com/rjoberon/bibsonomy-jekyll'
-  s.licenses = ['GPL 3']
+  s.licenses = ['GPL-3.0']
   s.files    = `git ls-files -z`.split("\x0")
 
   s.add_dependency 'jekyll', '~> 3.0'
