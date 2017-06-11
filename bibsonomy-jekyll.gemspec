@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.authors     = ['Robert Jäschke']
   s.email       = 'jaeschke@l3s.de'
   s.description = %q{Enables rendering of posts from BibSonomy with a Jekyll tag.}
-    
+
   s.homepage = 'https://github.com/rjoberon/bibsonomy-jekyll'
   s.licenses = ['GPL 3']
   s.files    = `git ls-files -z`.split("\x0")
@@ -22,5 +22,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rake', '~> 10.0'
   s.add_development_dependency "rspec", "~> 3.5"
   s.add_development_dependency "rubocop", "~> 0.41"
-  
+
 end
