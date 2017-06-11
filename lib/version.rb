@@ -1,3 +1,3 @@
-module BibSonomy
+module BibSonomyJekyll
   VERSION = "0.1.3"
 end

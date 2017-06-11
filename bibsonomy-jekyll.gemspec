@@ -7,7 +7,7 @@ require 'version'
 Gem::Specification.new do |s|
   s.name        = 'bibsonomy-jekyll'
   s.summary     = 'BibSonomy plugin for Jekyll'
-  s.version     = BibSonomy::VERSION
+  s.version     = BibSonomyJekyll::VERSION
   s.authors     = ['Robert Jäschke']
   s.email       = 'jaeschke@l3s.de'
   s.description = %q{Enables rendering of posts from BibSonomy with a Jekyll tag.}
