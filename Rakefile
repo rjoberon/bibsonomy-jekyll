@@ -1,10 +1,11 @@
-require 'rubygems'
-require 'bundler/gem_tasks'
+require "bundler/gem_tasks"
 
+# tests are in spec directory
 begin
   require 'rspec/core/rake_task'
-  RSpec::Core::RakeTask.new(:test) do |t|
-    t.rspec_opts = "--color --require spec_helper"
-  end
+  RSpec::Core::RakeTask.new(:spec)
+
+  task :default => :spec
+
 rescue LoadError
 end
