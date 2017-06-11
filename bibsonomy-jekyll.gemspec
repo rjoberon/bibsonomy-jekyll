@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.files    = `git ls-files -z`.split("\x0")
 
   s.add_dependency 'jekyll', '~> 3.0'
-  s.add_dependency 'bibsonomy', '~> 0.4', '>= 0.4.8'
+  s.add_dependency 'bibsonomy', '~> 0.4', '>= 0.4.9'
 
   s.add_development_dependency 'rake', '~> 10.0'
   s.add_development_dependency "rspec", "~> 3.5"

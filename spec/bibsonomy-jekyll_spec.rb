@@ -12,7 +12,7 @@ RSpec.describe "BibSonomy" do
     end
 
     it "renders link" do
-      expect(content).to match(%r!<a href="http://www.bibsonomy.org/publication/893978f4a3ac2c5556e391b8749ed8c0/bibsonomy-ruby">BibSonomy</a>!)
+      expect(content).to match(%r!<a href="https://www.bibsonomy.org/publication/893978f4a3ac2c5556e391b8749ed8c0/bibsonomy-ruby">BibSonomy</a>!)
     end
   end
 end
