@@ -7,6 +7,8 @@
 
 ## Usage
 
+(Read the Jekyll documentation on [installing a plugin](https://jekyllrb.com/docs/plugins/#installing-a-plugin).)
+
 1. Add the following to your site's `Gemfile`:
 
 ```
