@@ -1,6 +1,8 @@
 # BibSonomy
 
-[BibSonomy](https://www.bibsonomy.org/) plugin for [Jekyll](http://jekyllrb.com/).
+[BibSonomy](https://www.bibsonomy.org/) plugin for
+[Jekyll](http://jekyllrb.com/) which renders bibliographic metadata
+using the [Citation Style Language ](http://citationstyles.org/).
 
 [![Gem Version](https://badge.fury.io/rb/bibsonomy-jekyll.svg)](http://badge.fury.io/rb/bibsonomy-jekyll)
 [![Build Status](https://travis-ci.org/rjoberon/bibsonomy-jekyll.svg?branch=master)](https://travis-ci.org/rjoberon/bibsonomy-jekyll)
