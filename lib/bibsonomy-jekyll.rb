@@ -43,6 +43,9 @@ module Jekyll
       # target directory for PDF documents
       csl.pdf_dir = bib_config['document_directory']
 
+      # Altmetric badge type
+      csl.altmetric_badge_type = bib_config['altmetric_badge_type']
+
       # CSL style for rendering
       csl.style = bib_config['style']
 
