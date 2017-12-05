@@ -59,4 +59,4 @@ The plugin supports a variable number of parameters:
 ## Examples
 
 For an example output, have a look at
-[my publication list](http://www.kbs.uni-hannover.de/~jaeschke/publications.html).
+[my publication list](https://amor.cms.hu-berlin.de/~jaeschkr/publications.html).
