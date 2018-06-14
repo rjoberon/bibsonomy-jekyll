@@ -16,8 +16,8 @@ Gem::Specification.new do |s|
   s.licenses = ['GPL-3.0']
   s.files    = `git ls-files -z`.split("\x0")
 
-  s.add_dependency 'jekyll', '~> 3.8'
-  s.add_dependency 'bibsonomy', '~> 0.4', '>= 0.4.10'
+  s.add_dependency 'jekyll', '~> 3.8', '>= 3.8.3'
+  s.add_dependency 'bibsonomy', '~> 0.4', '>= 0.4.12'
 
   s.add_development_dependency 'rake', '~> 12.3'
   s.add_development_dependency "rspec", "~> 3.5"
