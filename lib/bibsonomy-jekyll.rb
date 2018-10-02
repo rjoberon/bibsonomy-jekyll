@@ -22,18 +22,32 @@ require 'bibsonomy/csl'
 module Jekyll
 
   class BibSonomyPostList < Liquid::Tag
+
+    def lookup(parameter, context)
+      # Emulate Liquid-tag rendering
+      match = parameter.match(/{{\s*([a-zA-Z_]\w*)\s*}}/)
+      if match
+        variable = match[1]
+        return context[variable]
+      else
+        return parameter
+      end
+    end
+
     def initialize(tag_name, text, tokens)
       super
-      parts = text.split(/\s+/)
-      @grouping = parts.shift
-      @name = parts.shift
-      # the last element is the number of posts
-      @count = Integer(parts.pop)
-      # everything else are the tags
-      @tags = parts
+      @params = text
     end
 
     def render(context)
+      parts = @params.split(/\s+/)
+      grouping = lookup(parts.shift, context)
+      name = lookup(parts.shift, context)
+      # the last element is the number of posts
+      count = Integer(lookup(parts.pop, context))
+      # everything else are the tags
+      tags = parts.map { |p| lookup(p, context) }
+
       site = context.registers[:site]
 
       # user name and API key for BibSonomy
@@ -49,7 +63,7 @@ module Jekyll
       # CSL style for rendering
       csl.style = bib_config['style']
 
-      html = csl.render(@grouping, @name, @tags, @count)
+      html = csl.render(grouping, name, tags, count)
 
       # set date to now
       context.registers[:page]["date"] = Time.new
