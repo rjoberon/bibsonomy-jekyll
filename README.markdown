@@ -60,3 +60,22 @@ The plugin supports a variable number of parameters:
 
 For an example output, have a look at
 [my publication list](https://amor.cms.hu-berlin.de/~jaeschkr/publications.html).
+
+## Development
+
+Install dependencies:
+```shell
+bundle install
+```
+
+Run tests:
+```shell
+export BIBSONOMY_USER_NAME=yourusername
+export BIBSONOMY_API_KEY=yourapikey
+bundle exec rspec spec
+```
+
+Build gem:
+```shell
+gem build bibsonomy-jekyll.gemspec
+```
