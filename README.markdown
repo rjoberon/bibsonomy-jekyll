@@ -6,6 +6,8 @@ using the [Citation Style Language](http://citationstyles.org/).
 
 [![Gem Version](https://badge.fury.io/rb/bibsonomy-jekyll.svg)](http://badge.fury.io/rb/bibsonomy-jekyll)
 [![Build Status](https://travis-ci.org/rjoberon/bibsonomy-jekyll.svg?branch=master)](https://travis-ci.org/rjoberon/bibsonomy-jekyll)
+[![Coverage
+Status](https://coveralls.io/repos/rjoberon/bibsonomy-jekyll/badge.svg)](https://coveralls.io/r/rjoberon/bibsonomy-jekyll)
 
 ## Usage
 
