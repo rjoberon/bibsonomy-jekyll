@@ -2,6 +2,9 @@
 $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
 require "jekyll"
 require "bibsonomy-jekyll"
+require 'coveralls'
+
+Coveralls.wear!
 
 Jekyll.logger.log_level = :error
 
