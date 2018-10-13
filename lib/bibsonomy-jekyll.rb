@@ -15,6 +15,8 @@ require 'bibsonomy/csl'
 #     COUNT is an integer, the number of posts to return
 #
 # Changes:
+# 2018-10-13
+# - added document_link_prefix
 # 2018-10-08 (rja)
 # - added liquid expansion
 # 2017-05-31 (rja)
@@ -51,6 +53,9 @@ module Jekyll
 
       # target directory for PDF documents
       csl.pdf_dir = bib_config['document_directory']
+
+      # prefix for PDF document links
+      csl.pdf_link_prefix = bib_config['document_link_prefix']
 
       # Altmetric badge type
       csl.altmetric_badge_type = bib_config['altmetric_badge_type']
