@@ -30,6 +30,8 @@ bibsonomy:
   apikey: yourapikey
   # directory must exists; empty value disables document download
   document_directory: pdf
+  # default is empty string
+  document_link_prefix: /
   # check https://github.com/citation-style-language/styles for styles
   style: acm-sig-proceedings
   # see http://api.altmetric.com/embeds.html for types and JavaScript
