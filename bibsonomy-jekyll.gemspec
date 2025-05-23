@@ -13,11 +13,13 @@ Gem::Specification.new do |s|
   s.description = %q{Enables rendering of posts from BibSonomy with a Jekyll tag.}
 
   s.homepage = 'https://github.com/rjoberon/bibsonomy-jekyll'
-  s.licenses = ['GPL-3.0']
+  s.licenses = ['GPL-3.0-or-later']
   s.files    = `git ls-files -z`.split("\x0")
 
+  s.required_ruby_version = '>= 3.0'
+
   s.add_dependency 'jekyll', '~> 3.8', '>= 3.8.3'
-  s.add_dependency 'bibsonomy', '~> 0.4', '>= 0.4.16'
+  s.add_dependency 'bibsonomy', '~> 0.4', '>= 0.4.18'
 
   s.add_development_dependency 'rake', '~> 12.3'
   s.add_development_dependency "rspec", "~> 3.5"
