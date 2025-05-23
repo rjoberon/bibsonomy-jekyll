@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 3.0'
 
-  s.add_dependency 'jekyll', '~> 3.8', '>= 3.8.3'
+  s.add_dependency 'jekyll', '>= 3.8.3', "< 5.0"
   s.add_dependency 'bibsonomy', '~> 0.4', '>= 0.4.18'
 
   s.add_development_dependency 'rake', '~> 12.3'
