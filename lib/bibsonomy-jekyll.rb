@@ -7,7 +7,7 @@ require 'bibsonomy/csl'
 #
 # Jekyll Tag to render posts from BibSonomy.
 #
-# Usage: {% bibsonomy GROUPING NAME TAG1 TAG2 ... TAGN COUNT %}
+# Usage: {% bibsonomy [:OPTKEY OPTVAL] GROUPING NAME TAG1 TAG2 ... TAGN COUNT %}
 #   where
 #     GROUPING is either "user" or "group" and specifies the type of NAME
 #     NAME is the name of the group or user
@@ -15,6 +15,8 @@ require 'bibsonomy/csl'
 #     COUNT is an integer, the number of posts to return
 #
 # Changes:
+# 2026-06-02 (rja)
+# - added generic setting (and override) of csl configuration options
 # 2018-10-08 (rja)
 # - added liquid expansion
 # 2017-05-31 (rja)
@@ -24,23 +26,23 @@ require 'bibsonomy/csl'
 module Jekyll
 
   class BibSonomyPostList < Liquid::Tag
+
+    # these bibsonomy/csl configuration options are supported
+    CONFIG_OPTS = ['pdf_dir', 'altmetric_badge_type', 'style', 'year_headings', 'css_class']
+
     def initialize(tag_name, text, tokens)
       super
       @input = text
     end
 
+
     def render(context)
-      # expand liquid variables
       rendered_input = Liquid::Template.parse(@input).render(context)
-
-      bib_config = context.registers[:site].config['bibsonomy'].clone
-      #bib_config = site.config['bibsonomy']
-
-      # parse parameters
       parts = rendered_input.split(/\s+/)
-      # parameters starting with : can override configuration options
-      override_config(bib_config, parts)
 
+      # parameters starting with : can override csl configuration options
+      opts = get_opts(parts)
+      # use (remaining/actual) parameters
       grouping = parts.shift
       name = parts.shift
       # the last element is the number of posts
@@ -48,21 +50,10 @@ module Jekyll
       # everything else are the tags
       tags = parts
 
-      # extract config
-      site = context.registers[:site]
-
-      # user name and API key for BibSonomy
-      csl = BibSonomy::CSL.new(bib_config['user'], bib_config['apikey'])
-
-      # target directory for PDF documents
-      csl.pdf_dir = bib_config['document_directory']
-
-      # Altmetric badge type
-      csl.altmetric_badge_type = bib_config['altmetric_badge_type']
-
-      # CSL style for rendering
-      csl.style = bib_config['style']
-      csl.year_headings = bib_config['year_headings'].to_s.downcase == "true"
+      # configure CSL
+      config = context.registers[:site].config['bibsonomy']
+      csl = BibSonomy::CSL.new(config['user'], config['apikey'])
+      configure(csl, config, opts)
 
       html = csl.render(grouping, name, tags, count)
 
@@ -72,12 +63,35 @@ module Jekyll
       return html
     end
 
-    def override_config(config, parts)
+
+    def get_opts(parts)
+      opts = {}
       # parameters starting with : can override configuration options
       # only at the beginning → the first string without : stops loop
       while parts[0].start_with?(':')
-        config[parts.shift[1..]] = parts.shift
+        opts[parts.shift[1..]] = parts.shift
       end
+      return opts
+    end
+
+
+    #
+    # set values in csl from config, possibly overriden by opts
+    #
+    def configure(csl, config, opts)
+      # work on a copy of the configuration and override using opts
+      config = config.clone.merge(opts)
+      # set values from config in CSL
+      (CONFIG_OPTS & config.keys()).each do |key, value|
+        # TODO: access attribute by string → ok or hack?
+        csl.instance_variable_set('@' + key, value)
+      end
+
+      # HACK: convert the only (so far) boolean variable to boolean
+      if csl.year_headings.is_a?(String)
+         csl.year_headings = csl.year_headings.downcase == "true"
+      end
+
     end
   end
 
