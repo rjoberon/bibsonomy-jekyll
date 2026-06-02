@@ -82,9 +82,9 @@ module Jekyll
       # work on a copy of the configuration and override using opts
       config = config.clone.merge(opts)
       # set values from config in CSL
-      (CONFIG_OPTS & config.keys()).each do |key, value|
+      (CONFIG_OPTS & config.keys()).each do |key|
         # TODO: access attribute by string → ok or hack?
-        csl.instance_variable_set('@' + key, value)
+        csl.instance_variable_set('@' + key, config[key])
       end
 
       # HACK: convert the only (so far) boolean variable to boolean

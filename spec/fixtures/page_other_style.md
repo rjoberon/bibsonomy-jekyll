@@ -5,4 +5,4 @@ layout: default
 
 ** Jekyll BibSonomy Plugin **
 
-{% bibsonomy :style apa :year_headings false user bibsonomy-ruby test 1 %}
+{% bibsonomy :style iso690-numeric-en :year_headings false user bibsonomy-ruby test 1 %}

@@ -40,7 +40,7 @@ RSpec.configure do |config|
     site_config = Jekyll.configuration(CONFIG_DEFAULTS.merge(options))
     # get api key and user name from environment (configured via
     # .travis.yml on Travis or manually when testing locally)
-    site_config["bibsonomy"] = {"user" => ENV['BIBSONOMY_USER_NAME'], "apikey" => ENV['BIBSONOMY_API_KEY'], "style" => "springer-lecture-notes-in-computer-science", "year_headings" => "true"}
+    site_config["bibsonomy"] = {"user" => ENV['BIBSONOMY_USER_NAME'], "apikey" => ENV['BIBSONOMY_API_KEY'], "style" => "springer-lecture-notes-in-computer-science"}
     Jekyll::Site.new(site_config)
   end
 
