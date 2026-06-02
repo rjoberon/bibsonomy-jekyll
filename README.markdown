@@ -32,6 +32,7 @@ bibsonomy:
   document_directory: pdf
   # check https://github.com/citation-style-language/styles for styles
   style: acm-sig-proceedings
+  year_headings: true
   # see http://api.altmetric.com/embeds.html for types and JavaScript
   # to enable them; empty value disables rendering
   altmetric_badge_type: 1

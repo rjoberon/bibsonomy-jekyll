@@ -33,8 +33,14 @@ module Jekyll
       # expand liquid variables
       rendered_input = Liquid::Template.parse(@input).render(context)
 
+      bib_config = context.registers[:site].config['bibsonomy']
+      #bib_config = site.config['bibsonomy']
+
       # parse parameters
       parts = rendered_input.split(/\s+/)
+      # parameters starting with : can override configuration options
+      override_config(bib_config, parts)
+
       grouping = parts.shift
       name = parts.shift
       # the last element is the number of posts
@@ -46,7 +52,6 @@ module Jekyll
       site = context.registers[:site]
 
       # user name and API key for BibSonomy
-      bib_config = site.config['bibsonomy']
       csl = BibSonomy::CSL.new(bib_config['user'], bib_config['apikey'])
 
       # target directory for PDF documents
@@ -57,6 +62,7 @@ module Jekyll
 
       # CSL style for rendering
       csl.style = bib_config['style']
+      csl.year_headings = bib_config['year_headings'].downcase == "true"
 
       html = csl.render(grouping, name, tags, count)
 
@@ -64,6 +70,14 @@ module Jekyll
       context.registers[:page]["date"] = Time.new
 
       return html
+    end
+
+    def override_config(config, parts)
+      # parameters starting with : can override configuration options
+      # only at the beginning → the first string without : stops loop
+      while parts[0].start_with?(':')
+        config[parts.shift[1..]] = parts.shift
+      end
     end
   end
 
