@@ -33,7 +33,7 @@ module Jekyll
       # expand liquid variables
       rendered_input = Liquid::Template.parse(@input).render(context)
 
-      bib_config = context.registers[:site].config['bibsonomy']
+      bib_config = context.registers[:site].config['bibsonomy'].clone
       #bib_config = site.config['bibsonomy']
 
       # parse parameters
