@@ -62,7 +62,7 @@ module Jekyll
 
       # CSL style for rendering
       csl.style = bib_config['style']
-      csl.year_headings = bib_config['year_headings'].to_str.downcase == "true"
+      csl.year_headings = bib_config['year_headings'].to_s.downcase == "true"
 
       html = csl.render(grouping, name, tags, count)
 
